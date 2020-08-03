@@ -1,16 +1,21 @@
 import React from 'react';
 import './Header.css';
 import cat from './cat.svg';
+import IconButton from '@material-ui/core/IconButton';
 import PersonIcon from '@material-ui/icons/Person';
 import ForumIcon from '@material-ui/icons/Forum';
 
 const Header = () => {
   return (
     <div className="header">
-      <PersonIcon className="header__icon" fontSize="large" />
-      {/* <h2>Logo</h2> */}
+      <IconButton>
+        <PersonIcon className="header__icon" fontSize="large" />
+      </IconButton>
+      {/* LOGO */}
       <img className="header__logo" src={cat} alt="cat logo" />
-      <ForumIcon className="header__icon" fontSize="large" />
+      <IconButton>
+        <ForumIcon className="header__icon" fontSize="large" />
+      </IconButton>
     </div>
   );
 };
