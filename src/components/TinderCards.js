@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './TinderCards.css';
+import database from '../firebase';
 import TinderCard from 'react-tinder-card';
 
 const TinderCards = () => {
-  const [cats, setCats] = useState([
-    {
-      name: 'Mia',
-      url:
-        'https://images.pexels.com/photos/774731/pexels-photo-774731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    },
+  const [cats, setCats] = useState([]);
 
-    {
-      name: 'Nato',
-      url:
-        'https://images.pexels.com/photos/156934/pexels-photo-156934.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    },
-  ]);
+  // Piece of code that runs based on condition
+  useEffect(() => {
+    // code runs here
+    // this will run once when the component loads
+    database.collection('cats').onSnapshot((snapshot) => {
+      setCats(snapshot.docs.map((doc) => doc.data()));
+    });
+  }, []);
 
   // Bad in React
   // const cats = [];
