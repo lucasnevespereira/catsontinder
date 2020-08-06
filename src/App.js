@@ -3,6 +3,8 @@ import './App.css';
 import Header from './components/Header';
 import SwipeButtons from './components/SwipeButtons';
 import TinderCards from './components/TinderCards';
+import Chats from './components/Chats';
+import ChatScreen from './components/ChatScreen';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -11,9 +13,13 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
+          <Route path="/chat/:cat">
+            <Header backButton="/chat" />
+            <ChatScreen />
+          </Route>
           <Route path="/chat">
             <Header backButton="/" />
-            <h2>This is the chat screen</h2>
+            <Chats />
           </Route>
           <Route path="/">
             <Header />
