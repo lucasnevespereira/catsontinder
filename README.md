@@ -2,6 +2,8 @@
 
 Tinder for clone for cats made with React.
 
-## Todos
+## Todo Ideas
 
-// Using a cat API instead of Firebase.
+// Using a cat API instead of Firebase ?
+// Adding Auth ?
+// Build realTime chat ?
