@@ -9,13 +9,14 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <Header />
       <Router>
         <Switch>
           <Route path="/chat">
+            <Header backButton="/" />
             <h2>This is the chat screen</h2>
           </Route>
           <Route path="/">
+            <Header />
             <TinderCards />
             <SwipeButtons />
           </Route>
