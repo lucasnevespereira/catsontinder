@@ -10,9 +10,16 @@ const TinderCards = () => {
   useEffect(() => {
     // code runs here
     // this will run once when the component loads
-    database.collection('cats').onSnapshot((snapshot) => {
+    const unsubscribe = database.collection('cats').onSnapshot((snapshot) => {
       setCats(snapshot.docs.map((doc) => doc.data()));
     });
+
+    return () => {
+      // this is the cleanup process..
+      // Basically it unsubscribes from database in firebase after getting a snapshot of it.
+
+      unsubscribe();
+    };
   }, []);
 
   // Bad in React
